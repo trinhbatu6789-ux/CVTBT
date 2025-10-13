@@ -1,0 +1,78 @@
+{
+  "personalInfo": {
+    "name": "TRỊNH BÁ TÚ",
+    "position": "Frontend Developer (Intern)",
+    "avatarUrl": "/avatar.jpg"
+  },
+  "contact": {
+    "phone": "0368719458",
+    "email": "trinhbatu6789@gmail.com",
+    "address": "No. 255 Cau Giay Street, Dich Vong Ward, Cau Giay District, Ha Noi, Vietnam"
+  },
+  "education": {
+    "school": "FPT Polytechnic (01/2023 - 05/2025)",
+    "degree": "Bachelor of Software Engineering",
+    "major": "Software Development",
+    "gpa": "3.25"
+  },
+  "languages": [
+    { "name": "Technical Reading", "level": "Proficient" },
+    { "name": "Spoken Communication", "level": "Conversational" }
+  ],
+  "skills": {
+    "backend": ["Java(Core, OOP)", "Spring Boot (REST API, Security, JPA)", "SQL"],
+    "frontend": ["JavaScript(ES6+), ReactJS, jQuery", "HTML, CSS", "Bootstrap 5, Ant Design"],
+    "tools": ["IntelliJ IDEA, VS Code, Git, GitHub", "Postman, JUnit", "Maven, npm, Vite"]
+  },
+  "summary": "I am a recent graduate specializing in Software Development with a solid foundation in Backend programming using Java, Spring Boot, and SQL. During my internship at AALAB Technology Company as a Software Development Intern, I participated in building REST APIs, optimizing database performance and system architecture, thereby improving my analytical, programming, and teamwork skills. With a passion for creating robust, scalable, and efficient backend systems, I am eager to join a professional team, contribute to modern web applications, and further develop myself as a Java Backend Developer.",
+  "workExperience": [
+    {
+      "title": "Software Development Intern - AALAB Technology",
+      "period": "Jun – Aug 2025",
+      "highlights": [
+        "Built UI from mockups with React/HTML/CSS; optimized UX & performance.",
+        "Supported REST APIs with Spring Boot; DB integration.",
+        "Customized themes/settings (Ant Design/Spring Boot) per standards.",
+        "Worked on performance tuning and basic unit tests under guidance.",
+        "Collaborated via Git/GitHub; documented technical notes."
+      ],
+      "result": "Participated under supervision in aalab.com",
+      "resultLink": "https://www.aalab.vn/"
+    }
+  ],
+  "projects": [
+    {
+      "title": "The Hands - Shoe Commerce (Online + POS)",
+      "period": "Jan – Apr 2025",
+      "description": "An all-in-one shoe retail platform for online + POS. Manage products and orders, authenticate users, accept payments, and track sales to streamline operations and grow faster.",
+      "stack": [
+        "Spring Boot",
+        "MySQL",
+        "React",
+        "jQuery",
+        "WebSocket",
+        "JWT/RBAC",
+        "JUnit",
+        "Swagger"
+      ],
+      "highlights": [
+        "Core scope: Product & inventory, Cart/Checkout & Orders, Payments (gateway + webhook), Discounts, Accounts, Real-time chat (widget → Admin), Analytics, Statistical.",
+        "Outcomes: Stable end-to-end MVP, channel-synced inventory, real-time admin chat, growth, Swagger APIs,...."
+      ],
+      "role": "Fullstack Developer",
+      "result": "Result: 9/10",
+      "links": [
+        {
+          "type": "Backend",
+          "url": "https://github.com/BinhTran68/datn_backend_spring_2025",
+          "display": "trinhbatubackend"
+        },
+        {
+          "type": "Frontend",
+          "url": "https://github.com/BinhTran68/datn_fontend_reactjs",
+          "display": "trinhbatufrontend"
+        }
+      ]
+    }
+  ]
+}

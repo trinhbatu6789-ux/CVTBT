@@ -1,0 +1,58 @@
+{
+  "name": "cv-project",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "vite",
+    "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --fix",
+    "lint:check": "eslint . --max-warnings 0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "format:staged": "prettier --write",
+    "commit": "git-cz",
+    "commit:check": "commitlint --from HEAD~1 --to HEAD --verbose",
+    "prepare": "husky",
+    "postinstall": "husky",
+    "quality": "npm run lint:check && npm run format:check",
+    "quality:fix": "npm run lint:fix && npm run format",
+    "pre-commit": "lint-staged",
+    "pre-commit:check": "lint-staged --dry-run"
+  },
+  "dependencies": {
+    "antd": "^5.27.4",
+    "axios": "^1.12.2",
+    "bootstrap": "^5.3.8",
+    "framer-motion": "^12.23.24",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-intersection-observer": "^9.16.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@eslint/js": "^9.37.0",
+    "@vitejs/plugin-react": "^5.0.4",
+    "autoprefixer": "^10.4.21",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^9.37.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.0",
+    "eslint-plugin-react-refresh": "^0.4.23",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.4",
+    "postcss": "^8.5.6",
+    "prettier": "^3.6.2",
+    "vite": "^7.1.9"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

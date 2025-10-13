@@ -1,0 +1,285 @@
+/* ========================================
+   COMPONENTS - CÁC THÀNH PHẦN UI
+   ======================================== */
+
+/* SECTION COMPONENT - THÀNH PHẦN PHẦN */
+.section {
+  margin-bottom: var(--margin-xxxl);
+  background: var(--color-bg-section);
+  padding: var(--padding-lg);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--color-border-secondary);
+  box-shadow: var(--shadow-md);
+}
+
+/* SECTION TITLE - TIÊU ĐỀ PHẦN */
+.section-title {
+  margin: 0 0 var(--margin-lg) 0;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 3px solid var(--color-primary);
+  padding-bottom: var(--padding-sm);
+}
+
+/* SECTION TITLE SMALL - TIÊU ĐỀ PHẦN NHỎ */
+.section-title-small {
+  margin: 0 0 var(--margin-md) 0;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: var(--padding-xs);
+}
+
+/* AVATAR - ẢNH ĐẠI DIỆN */
+.avatar {
+  background: #d9d9d9;
+  border: 5px solid var(--color-bg-main);
+  box-shadow: var(--shadow-avatar);
+}
+
+/* NAME DISPLAY - HIỂN THỊ TÊN */
+.name-display {
+  margin: 0;
+  font-size: var(--font-size-giant);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.5px;
+}
+
+/* POSITION DISPLAY - HIỂN THỊ CHỨC VỤ */
+.position-display {
+  font-size: var(--font-size-xxl);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-semibold);
+  margin-top: var(--margin-sm);
+  display: block;
+  letter-spacing: 0.3px;
+}
+
+/* CONTACT ITEM - MỤC LIÊN HỆ */
+.contact-item {
+  margin-bottom: var(--margin-xs);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+}
+
+.contact-icon {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-md);
+  margin-top: 2px;
+}
+
+.contact-text {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-md);
+  flex: 1;
+}
+
+/* INFO ITEM - MỤC THÔNG TIN */
+.info-item {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: 2px;
+}
+
+.info-item-bold {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: 2px;
+}
+
+/* SKILL GROUP - NHÓM KỸ NĂNG */
+.skill-group {
+  margin-bottom: var(--margin-md);
+}
+
+.skill-group-title {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-md);
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+
+.skill-list {
+  margin-left: 0;
+}
+
+.skill-item {
+  margin-bottom: 2px;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+/* LANGUAGE ITEM - MỤC NGÔN NGỮ */
+.language-item {
+  margin-bottom: 3px;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.language-name {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+/* WORK ITEM - MỤC CÔNG VIỆC */
+.work-item {
+  margin-bottom: var(--margin-xl);
+  padding-bottom: var(--padding-lg);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.work-item:last-child {
+  border-bottom: none;
+}
+
+.work-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--margin-sm);
+}
+
+.work-title {
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+}
+
+.work-period {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+}
+
+/* PROJECT ITEM - MỤC DỰ ÁN */
+.project-item {
+  margin-bottom: var(--margin-xl);
+  padding-bottom: var(--padding-lg);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.project-item:last-child {
+  border-bottom: none;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--margin-sm);
+}
+
+.project-title {
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+}
+
+.project-period {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+}
+
+/* DESCRIPTION TEXT - VĂN BẢN MÔ TẢ */
+.description-text {
+  margin-bottom: var(--margin-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* STACK INFO - THÔNG TIN CÔNG NGHỆ */
+.stack-info {
+  margin-bottom: var(--margin-sm);
+  font-size: var(--font-size-sm);
+}
+
+.stack-label {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.stack-text {
+  color: var(--color-text-secondary);
+}
+
+/* HIGHLIGHTS LIST - DANH SÁCH ĐIỂM NỔI BẬT */
+.highlights-list {
+  margin-bottom: var(--margin-sm);
+}
+
+.highlight-item {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: 3px;
+  line-height: var(--line-height-normal);
+}
+
+/* ROLE INFO - THÔNG TIN VAI TRÒ */
+.role-info {
+  margin-bottom: var(--margin-sm);
+  font-size: var(--font-size-sm);
+}
+
+.role-label {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+/* RESULT INFO - THÔNG TIN KẾT QUẢ */
+.result-info {
+  font-size: var(--font-size-sm);
+}
+
+.result-label {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.result-text {
+  color: var(--color-text-secondary);
+}
+
+/* LINKS SECTION - PHẦN LIÊN KẾT */
+.links-section {
+  margin-top: var(--margin-sm);
+  font-size: var(--font-size-sm);
+}
+
+.link-item {
+  margin-bottom: 2px;
+}
+
+.link-label {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.link-url {
+  color: var(--color-link);
+  text-decoration: underline;
+}
+
+.link-url:hover {
+  color: var(--color-link-hover);
+}
+
+/* SUMMARY TEXT - VĂN BẢN TÓM TẮT */
+.summary-text {
+  margin-bottom: 0;
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-loose);
+  color: var(--color-text-secondary);
+}

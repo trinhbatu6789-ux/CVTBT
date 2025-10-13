@@ -1,0 +1,135 @@
+/* ========================================
+   LAYOUT - BỐ CỤC TỔNG THỂ
+   ======================================== */
+
+/* CONTAINER CHÍNH - MAIN CONTAINER */
+.cv-container {
+  max-width: var(--cv-width);
+  width: 100%;
+  margin: 0 auto;
+  background: var(--color-bg-main);
+  box-shadow: var(--cv-shadow);
+  min-height: var(--cv-min-height);
+}
+
+/* HEADER SECTION - PHẦN ĐẦU CV */
+.cv-header {
+  background: var(--color-bg-header);
+  padding: var(--padding-xxl) var(--padding-huge);
+  position: relative;
+  border-bottom: 3px solid var(--color-border-primary);
+}
+
+/* LAYOUT 2 CỘT - TWO COLUMN LAYOUT */
+.cv-main-content {
+  display: flex;
+  min-height: calc(var(--cv-height) - 140px);
+}
+
+/* SIDEBAR - CỘT TRÁI */
+.cv-sidebar {
+  flex: 0 0 30%;
+  background: var(--color-bg-sidebar);
+  padding: var(--padding-lg) var(--padding-xl);
+  border-right: 2px solid var(--color-border-primary);
+}
+
+/* MAIN CONTENT - CỘT PHẢI */
+.cv-main {
+  flex: 0 0 70%;
+  background: var(--color-bg-main);
+  padding: var(--padding-lg) var(--padding-xxxl);
+}
+
+/* RESPONSIVE LAYOUT - BỐ CỤC TỰ ĐỘNG */
+@media (max-width: 768px) {
+  .cv-main-content {
+    flex-direction: column;
+  }
+
+  .cv-sidebar,
+  .cv-main {
+    flex: 1 1 100%;
+  }
+
+  .cv-sidebar {
+    border-right: none;
+    border-bottom: 2px solid var(--color-border-primary);
+  }
+
+  .cv-header {
+    padding: var(--padding-lg) var(--padding-xl);
+  }
+
+  .cv-main {
+    padding: var(--padding-lg);
+  }
+}
+
+/* APP WRAPPER - BỌC NGOÀI TOÀN APP */
+.app-wrapper {
+  min-height: 100dvh;
+  background: var(--color-bg-main);
+  padding: var(--padding-xl);
+}
+
+/* FLEX UTILITIES - TIỆN ÍCH FLEXBOX */
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-start {
+  display: flex;
+  align-items: flex-start;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+/* SPACING UTILITIES - TIỆN ÍCH KHOẢNG CÁCH */
+.gap-sm {
+  gap: var(--spacing-sm);
+}
+.gap-md {
+  gap: var(--spacing-md);
+}
+.gap-lg {
+  gap: var(--spacing-lg);
+}
+.gap-xl {
+  gap: var(--spacing-xl);
+}
+.gap-xxl {
+  gap: var(--spacing-xxl);
+}
+.gap-xxxl {
+  gap: var(--spacing-xxxl);
+}
+
+/* WIDTH UTILITIES - TIỆN ÍCH CHIỀU RỘNG */
+.w-full {
+  width: 100%;
+}
+.w-auto {
+  width: auto;
+}
+.max-w-full {
+  max-width: 100%;
+}

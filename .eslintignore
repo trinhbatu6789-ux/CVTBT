@@ -1,0 +1,58 @@
+# BUILD OUTPUTS - KẾT QUẢ BUILD
+dist/
+build/
+.next/
+.nuxt/
+.output/
+
+# DEPENDENCIES - CÁC THÀNH PHẦN PHỤ THUỘC
+node_modules/
+
+# CACHE - BỘ NHỚ ĐỆM
+.cache/
+.parcel-cache/
+.vite/
+
+# CONFIG FILES - FILE CẤU HÌNH
+*.config.js
+*.config.cjs
+*.config.mjs
+.eslintrc.cjs
+commitlint.config.js
+lint-staged.config.js
+
+# PUBLIC FOLDER - THƯ MỤC PUBLIC
+public/
+
+# COVERAGE - COVERAGE REPORTS
+coverage/
+*.lcov
+
+# TEMPORARY FILES - FILE TẠM THỜI
+tmp/
+temp/
+*.tmp
+*.temp
+
+# LOG FILES - FILE LOG
+*.log
+logs/
+
+# ENVIRONMENT FILES - FILE MÔI TRƯỜNG
+.env*
+
+# PACKAGE MANAGER FILES - FILE PACKAGE MANAGER
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# GENERATED FILES - FILE ĐƯỢC TẠO TỰ ĐỘNG
+*.generated.*
+*.auto.*
+
+# STORYBOOK - STORYBOOK FILES
+storybook-static/
+
+# DOCUMENTATION - TÀI LIỆU
+docs/
+*.md
