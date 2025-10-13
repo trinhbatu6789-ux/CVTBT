@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/CVTBT/', // Repository name của bạn
+  base: '/', // Để deploy từ master branch
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
