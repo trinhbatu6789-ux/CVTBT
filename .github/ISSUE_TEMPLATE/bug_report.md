@@ -1,31 +1,40 @@
 ---
-name: 🐛 Bug Report
-about: Báo cáo lỗi trong CV project
+name: Bug Report
+about: Create a report to help us improve
 title: '[BUG] '
-labels: bug
+labels: ['bug', 'needs-triage']
 assignees: ''
 ---
 
-## 🐛 Mô tả lỗi
-Mô tả ngắn gọn về lỗi bạn gặp phải.
+## 🐛 Bug Description
+A clear and concise description of what the bug is.
 
-## 🔄 Các bước tái tạo lỗi
-1. Vào trang '...'
-2. Click vào '...'
-3. Scroll xuống '...'
-4. Thấy lỗi
+## 🔄 Steps to Reproduce
+Steps to reproduce the behavior:
+1. Go to '...'
+2. Click on '....'
+3. Scroll down to '....'
+4. See error
 
-## ✅ Kết quả mong đợi
-Mô tả rõ ràng về kết quả bạn mong đợi.
+## 🎯 Expected Behavior
+A clear and concise description of what you expected to happen.
 
-## 📱 Môi trường
-- OS: [e.g. Windows, macOS, Linux]
-- Browser: [e.g. Chrome, Firefox, Safari]
-- Version: [e.g. 22]
-- Device: [e.g. Desktop, Mobile]
+## 📱 Screenshots
+If applicable, add screenshots to help explain your problem.
 
-## 📷 Screenshots
-Nếu có thể, hãy thêm screenshots để giải thích rõ hơn về lỗi.
+## 🌍 Environment
+- **OS**: [e.g. Windows 10, macOS 13.0, Ubuntu 22.04]
+- **Browser**: [e.g. Chrome 120, Firefox 121, Safari 17]
+- **Version**: [e.g. 1.2.3]
+- **Node.js**: [e.g. 18.17.0]
 
-## 📋 Thông tin bổ sung
-Thêm bất kỳ thông tin nào khác về lỗi ở đây.
+## 📋 Additional Context
+Add any other context about the problem here.
+
+## 🔍 Possible Solution
+If you have ideas on how to fix this bug, please describe them here.
+
+## 📝 Checklist
+- [ ] I have searched for existing issues before creating this one
+- [ ] I have provided all the information requested above
+- [ ] I have tested this issue on the latest version

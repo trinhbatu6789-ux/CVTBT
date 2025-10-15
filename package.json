@@ -6,23 +6,14 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:analyze": "vite build --mode analyze",
-    "preview": "vite preview",
-    "start": "vite",
-    "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "eslint . --fix",
-    "lint:check": "eslint . --max-warnings 0",
+    "test": "echo \"No tests specified yet\" && exit 0",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext js,jsx --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "format:staged": "prettier --write",
-    "commit": "git-cz",
-    "commit:check": "commitlint --from HEAD~1 --to HEAD --verbose",
     "prepare": "husky",
-    "postinstall": "husky",
-    "quality": "npm run lint:check && npm run format:check",
-    "quality:fix": "npm run lint:fix && npm run format",
-    "pre-commit": "lint-staged",
-    "pre-commit:check": "lint-staged --dry-run"
+    "preview": "vite preview",
+    "start": "vite"
   },
   "dependencies": {
     "antd": "^5.27.4",
@@ -39,8 +30,6 @@
     "@eslint/js": "^9.37.0",
     "@vitejs/plugin-react": "^5.0.4",
     "autoprefixer": "^10.4.21",
-    "commitizen": "^4.3.0",
-    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.37.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.0",
@@ -50,10 +39,5 @@
     "postcss": "^8.5.6",
     "prettier": "^3.6.2",
     "vite": "^7.1.9"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }

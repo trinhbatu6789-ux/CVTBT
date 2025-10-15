@@ -1,12 +1,2 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-# PRE-COMMIT HOOKS - CÁC HOOK TRƯỚC KHI COMMIT
-# Chạy lint-staged để kiểm tra và format code trước khi commit
-
-echo "🔍 Đang kiểm tra code quality..."
-
-# Chạy lint-staged (sẽ chạy ESLint và Prettier trên staged files)
-npx lint-staged
-
-echo "✅ Code quality check hoàn thành!"
+npm run lint
+npm run format:check

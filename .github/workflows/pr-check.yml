@@ -1,215 +1,98 @@
-# ========================================
-# GITHUB ACTIONS PR CHECK WORKFLOW
-# ========================================
-# 
-# Workflow kiểm tra Pull Request:
-# - Code quality check
-# - Build verification
-# - Preview deployment
-# - Chạy trên mọi PR
-#
-# Triggers:
-# - pull_request: any branch
-
-name: 🔍 PR Quality Check
+name: Pull Request Check
 
 on:
-  # PULL REQUEST TRIGGERS - KÍCH HOẠT KHI CÓ PR
   pull_request:
-    branches: [ main, develop ]
-    types: [ opened, synchronize, reopened ]
-  
-  # MANUAL TRIGGER - KÍCH HOẠT THỦ CÔNG
-  workflow_dispatch:
-
-# ENVIRONMENT - MÔI TRƯỜNG
-env:
-  NODE_VERSION: '18'
-  CACHE_VERSION: 'v1'
+    types: [opened, synchronize, reopened]
 
 jobs:
-  # JOB 1: CODE QUALITY - KIỂM TRA CHẤT LƯỢNG CODE
-  code-quality:
-    name: 🔍 Code Quality
+  pr-check:
+    name: Pull Request Validation
     runs-on: ubuntu-latest
     
     steps:
-      - name: 📥 Checkout PR code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
       
-      - name: 🔧 Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-          cache-dependency-path: package-lock.json
+    - name: Run linter
+      run: npm run lint
       
-      - name: 📦 Install dependencies
-        run: |
-          echo "📦 Installing dependencies..."
-          npm ci
+    - name: Check code formatting
+      run: npm run format:check
       
-      - name: 🔍 ESLint check
-        run: |
-          echo "🔍 Running ESLint..."
-          npm run lint:check
-        continue-on-error: true
+    - name: Build project
+      run: npm run build
       
-      - name: 💄 Prettier check
-        run: |
-          echo "💄 Running Prettier check..."
-          npm run format:check
-        continue-on-error: true
-      
-      - name: 📊 Overall quality check
-        run: |
-          echo "📊 Running comprehensive quality checks..."
-          npm run quality
-        continue-on-error: true
-      
-      - name: 📋 Upload quality results
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: quality-results-${{ github.event.number }}
-          path: |
-            .eslintcache
-          retention-days: 3
-
-  # JOB 2: BUILD VERIFICATION - KIỂM TRA BUILD
-  build-check:
-    name: 🏗️ Build Verification
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: 📥 Checkout PR code
-        uses: actions/checkout@v4
-      
-      - name: 🔧 Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-          cache-dependency-path: package-lock.json
-      
-      - name: 📦 Install dependencies
-        run: npm ci
-      
-      - name: 🏗️ Build project
-        run: |
-          echo "🏗️ Building project..."
-          npm run build
-        continue-on-error: true
-      
-      - name: 📊 Build analysis
-        run: |
-          echo "📊 Build analysis:"
-          if [ -d "dist" ]; then
-            echo "✅ Build successful"
-            ls -la dist/
-            echo "📏 Build size:"
-            du -sh dist/
-            echo "📁 Build contents:"
-            find dist/ -type f | head -10
-          else
-            echo "❌ Build failed - no dist directory"
-            exit 1
-          fi
-        continue-on-error: true
-      
-      - name: 📋 Upload build artifacts
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: build-preview-${{ github.event.number }}
-          path: dist/
-          retention-days: 3
-
-  # JOB 3: PREVIEW DEPLOYMENT - TRIỂN KHAI PREVIEW
-  preview-deploy:
-    name: 👁️ Preview Deployment
-    runs-on: ubuntu-latest
-    needs: [code-quality, build-check]
-    if: always() && (needs.code-quality.result == 'success' || needs.build-check.result == 'success')
-    
-    steps:
-      - name: 📥 Checkout PR code
-        uses: actions/checkout@v4
-      
-      - name: 🔧 Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-      
-      - name: 📦 Install dependencies
-        run: npm ci
-      
-      - name: 🏗️ Build for preview
-        run: npm run build
-      
-      - name: 📋 Download build artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: build-preview-${{ github.event.number }}
-          path: dist/
-      
-      - name: 👁️ Deploy preview to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        if: github.event.pull_request.head.repo.full_name == github.repository
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist/
-          destination_dir: preview/pr-${{ github.event.number }}
-      
-      - name: 📢 Preview deployment success
-        run: |
-          echo "🎉 Preview deployed!"
-          echo "👁️ Preview URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/preview/pr-${{ github.event.number }}/"
-          echo "🔗 PR: ${{ github.event.pull_request.html_url }}"
-
-  # JOB 4: PR SUMMARY - TÓM TẮT PR
-  pr-summary:
-    name: 📋 PR Summary
-    runs-on: ubuntu-latest
-    needs: [code-quality, build-check, preview-deploy]
-    if: always()
-    
-    steps:
-      - name: 📋 Generate PR Summary
-        run: |
-          echo "📋 PULL REQUEST SUMMARY"
-          echo "======================"
-          echo "🎯 PR #${{ github.event.number }}: ${{ github.event.pull_request.title }}"
-          echo "👤 Author: ${{ github.event.pull_request.user.login }}"
-          echo "🌿 Branch: ${{ github.event.pull_request.head.ref }}"
-          echo "📅 Created: ${{ github.event.pull_request.created_at }}"
-          echo "======================"
-          echo "🔍 Code Quality: ${{ needs.code-quality.result }}"
-          echo "🏗️ Build Check: ${{ needs.build-check.result }}"
-          echo "👁️ Preview Deploy: ${{ needs.preview-deploy.result }}"
-          echo "======================"
+    - name: Check for build artifacts
+      run: |
+        if [ ! -d "dist" ]; then
+          echo "Build failed - dist directory not found"
+          exit 1
+        fi
+        
+        if [ ! -f "dist/index.html" ]; then
+          echo "Build failed - index.html not found in dist"
+          exit 1
+        fi
+        
+        echo "Build artifacts verified successfully"
+        
+    - name: Comment PR
+      if: always()
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const { data: comments } = await github.rest.issues.listComments({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: context.issue.number,
+          });
           
-          if [[ "${{ needs.code-quality.result }}" == "success" && "${{ needs.build-check.result }}" == "success" ]]; then
-            echo "✅ All checks passed! Ready for review."
-            if [[ "${{ needs.preview-deploy.result }}" == "success" ]]; then
-              echo "👁️ Preview available for testing."
-            fi
-          elif [[ "${{ needs.code-quality.result }}" == "failure" ]]; then
-            echo "❌ Code quality issues found. Please fix ESLint/Prettier errors."
-          elif [[ "${{ needs.build-check.result }}" == "failure" ]]; then
-            echo "❌ Build failed. Please check the build logs."
-          else
-            echo "⚠️ Some checks failed. Please review the logs."
-          fi
-      
-      - name: 📊 Upload PR artifacts summary
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: pr-summary-${{ github.event.number }}
-          path: |
-            .eslintcache
-          retention-days: 3
+          const botComment = comments.find(comment => 
+            comment.user.type === 'Bot' && 
+            comment.body.includes('## 🔍 Pull Request Check Results')
+          );
+          
+          const status = '${{ job.status }}';
+          const statusEmoji = status === 'success' ? '✅' : '❌';
+          const statusColor = status === 'success' ? 'green' : 'red';
+          
+          const commentBody = `## 🔍 Pull Request Check Results
+          
+          **Status:** ${statusEmoji} ${status.toUpperCase()}
+          
+          ### Checks Performed:
+          - ✅ Code linting
+          - ✅ Code formatting
+          - ✅ Build verification
+          
+          ${status === 'success' 
+            ? '🎉 All checks passed! This PR is ready for review.' 
+            : '⚠️ Some checks failed. Please review the workflow logs for details.'}
+          `;
+          
+          if (botComment) {
+            await github.rest.issues.updateComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              comment_id: botComment.id,
+              body: commentBody
+            });
+          } else {
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: commentBody
+            });
+          }

@@ -1,0 +1,10 @@
+dist/
+build/
+node_modules/
+.vite/
+.cache/
+.eslintcache
+*.log
+.env
+.env.*
+!.env.example
