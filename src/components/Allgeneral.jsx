@@ -7,12 +7,12 @@ import data from "../data.json";
 
 /**
  * COMPONENT CHÍNH - TỔNG QUAN CV
- *
+ * 
  * Chức năng:
  * - Tạo layout tổng thể cho CV
  * - Quản lý cấu trúc 2 cột (sidebar + main content)
  * - Hiển thị header với thông tin cá nhân
- *
+ * 
  * Cấu trúc:
  * - Header: Chứa avatar và thông tin cơ bản
  * - Sidebar: Thông tin liên hệ, kỹ năng, học vấn

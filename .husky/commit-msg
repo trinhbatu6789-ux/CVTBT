@@ -1,6 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-# COMMIT MESSAGE LINTING - KIỂM TRA COMMIT MESSAGE
-# Chạy commitlint để kiểm tra format commit message
 npx --no -- commitlint --edit $1
+

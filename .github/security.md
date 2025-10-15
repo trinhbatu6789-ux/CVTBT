@@ -24,14 +24,12 @@ If you discover a security vulnerability, please follow these steps:
 ## 🔍 Security Best Practices
 
 ### For Contributors
-
 - Keep dependencies updated
 - Follow secure coding practices
 - Review code thoroughly before submitting PRs
 - Report security issues responsibly
 
 ### For Users
-
 - Keep your browser updated
 - Use HTTPS when accessing the application
 - Report any suspicious behavior immediately
@@ -39,7 +37,6 @@ If you discover a security vulnerability, please follow these steps:
 ## 🛡️ Security Measures
 
 Our project implements the following security measures:
-
 - Regular dependency updates via Dependabot
 - Automated security scanning in CI/CD
 - Content Security Policy (CSP) headers
