@@ -34,9 +34,9 @@ src/styles/
 
 ```jsx
 // Sử dụng utility classes
-<div className='flex-center gap-lg'>
-  <div className='cv-container'>
-    <div className='cv-header'>...</div>
+<div className="flex-center gap-lg">
+  <div className="cv-container">
+    <div className="cv-header">...</div>
   </div>
 </div>
 ```
@@ -45,11 +45,11 @@ src/styles/
 
 ```jsx
 // Sử dụng component-specific classes
-<div className='section'>
-  <h3 className='section-title'>Tiêu đề</h3>
-  <div className='contact-item'>
-    <Icon className='contact-icon' />
-    <span className='contact-text'>Nội dung</span>
+<div className="section">
+  <h3 className="section-title">Tiêu đề</h3>
+  <div className="contact-item">
+    <Icon className="contact-icon" />
+    <span className="contact-text">Nội dung</span>
   </div>
 </div>
 ```

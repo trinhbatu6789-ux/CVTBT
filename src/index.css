@@ -3,25 +3,25 @@
    ======================================== */
 
 /* Import Design System - Nhập hệ thống thiết kế */
-@import './styles/variables.css';
-@import './styles/layout.css';
-@import './styles/components.css';
+@import "./styles/variables.css";
+@import "./styles/layout.css";
+@import "./styles/components.css";
 
 /* BODY STYLES - PHONG CÁCH THÂN TRANG */
 body {
   margin: 0;
   font-family:
-    'Poppins',
+    "Poppins",
     -apple-system,
     BlinkMacSystemFont,
-    'Segoe UI',
-    'Roboto',
-    'Oxygen',
-    'Ubuntu',
-    'Cantarell',
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

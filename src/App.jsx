@@ -1,6 +1,6 @@
-import { ConfigProvider, theme } from 'antd';
-import Allgeneral from './components/allgeneral';
-import 'antd/dist/reset.css';
+import { ConfigProvider, theme } from "antd";
+import Allgeneral from "./components/allgeneral";
+import "antd/dist/reset.css";
 
 /**
  * APP COMPONENT - COMPONENT GỐC
@@ -21,9 +21,9 @@ export default function App() {
       theme={{
         algorithm: theme.defaultAlgorithm, // Có thể chuyển sang theme.darkAlgorithm
         token: {
-          colorPrimary: 'var(--color-primary)',
-          colorInfo: 'var(--color-info)',
-          colorBgLayout: 'var(--color-bg-layout)',
+          colorPrimary: "var(--color-primary)",
+          colorInfo: "var(--color-info)",
+          colorBgLayout: "var(--color-bg-layout)",
           borderRadius: 12,
           fontSize: 14,
         },
@@ -34,7 +34,7 @@ export default function App() {
       }}
     >
       {/* WRAPPER TOÀN BỘ APP */}
-      <div className='app-wrapper'>
+      <div className="app-wrapper">
         <Allgeneral />
       </div>
     </ConfigProvider>
