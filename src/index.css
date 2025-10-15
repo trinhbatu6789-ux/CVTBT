@@ -6,6 +6,7 @@
 @import "./styles/variables.css";
 @import "./styles/layout.css";
 @import "./styles/components.css";
+@import "./styles/animations.css";
 
 /* BODY STYLES - PHONG CÁCH THÂN TRANG */
 body {
