@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/CVTBT/', // Set base path for GitHub Pages
+  base: process.env.NODE_ENV === 'production' ? '/CVTBT/' : '/', // Set base path only for production
 });
