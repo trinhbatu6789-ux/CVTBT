@@ -146,8 +146,10 @@
 .work-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: var(--margin-sm);
+  align-items: center;
+  margin-bottom: var(--margin-md);
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
 }
 
 .work-title {
@@ -176,8 +178,10 @@
 .project-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: var(--margin-sm);
+  align-items: center;
+  margin-bottom: var(--margin-md);
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
 }
 
 .project-title {
@@ -282,4 +286,6 @@
   font-size: var(--font-size-md);
   line-height: var(--line-height-loose);
   color: var(--color-text-secondary);
+  text-align: justify;
+  text-indent: 0;
 }

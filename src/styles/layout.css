@@ -15,30 +15,34 @@
 /* HEADER SECTION - PHẦN ĐẦU CV */
 .cv-header {
   background: var(--color-bg-header);
-  padding: var(--padding-xxl) var(--padding-huge);
+  padding: var(--padding-xl) var(--padding-xl);
   position: relative;
   border-bottom: 3px solid var(--color-border-primary);
+  text-align: center;
 }
 
 /* LAYOUT 2 CỘT - TWO COLUMN LAYOUT */
 .cv-main-content {
   display: flex;
   min-height: calc(var(--cv-height) - 140px);
+  gap: 0;
 }
 
 /* SIDEBAR - CỘT TRÁI */
 .cv-sidebar {
-  flex: 0 0 30%;
+  flex: 0 0 35%;
   background: var(--color-bg-sidebar);
-  padding: var(--padding-lg) var(--padding-xl);
+  padding: var(--padding-xl) var(--padding-lg);
   border-right: 2px solid var(--color-border-primary);
+  max-width: 35%;
 }
 
 /* MAIN CONTENT - CỘT PHẢI */
 .cv-main {
-  flex: 0 0 70%;
+  flex: 0 0 65%;
   background: var(--color-bg-main);
-  padding: var(--padding-lg) var(--padding-xxxl);
+  padding: var(--padding-xl) var(--padding-xl);
+  max-width: 65%;
 }
 
 /* RESPONSIVE LAYOUT - BỐ CỤC TỰ ĐỘNG */
@@ -50,19 +54,28 @@
   .cv-sidebar,
   .cv-main {
     flex: 1 1 100%;
+    max-width: 100%;
   }
 
   .cv-sidebar {
     border-right: none;
     border-bottom: 2px solid var(--color-border-primary);
+    padding: var(--padding-lg);
   }
 
   .cv-header {
-    padding: var(--padding-lg) var(--padding-xl);
+    padding: var(--padding-lg) var(--padding-lg);
   }
 
   .cv-main {
     padding: var(--padding-lg);
+  }
+
+  .work-header,
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
   }
 }
 
