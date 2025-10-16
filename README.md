@@ -1,108 +1,64 @@
-# CV Project - Trịnh Bá Tú
+# CV - Trịnh Bá Tú
 
-Một CV hiện đại, responsive được xây dựng với React và Vite.
+> CV web hiện đại xây bằng React + Vite, dữ liệu tách riêng, có tìm kiếm và hiệu ứng UI.
 
-## 📁 Cấu trúc dự án
+## 📦 Tech stack
+- React 19 + Vite 7
+- Ant Design (UI cơ bản, icons)
+- CSS tách lớp: `styles/layout.css`, `styles/components.css`, `styles/animations.css`
 
+## 🧭 Cấu trúc chính
 ```
-CVDEV/
-├── Component/
-│   ├── Allcomponent.jsx    # Component layout chính
-│   ├── CV.css             # Tất cả styles cho CV
-│   ├── CVHeader.jsx       # Header với ảnh và tên
-│   ├── PersonalInfo.jsx   # Sidebar với thông tin liên hệ, học vấn, kỹ năng
-│   └── SummaryWork.jsx    # Nội dung chính với tóm tắt về bản thân và kinh nghiệm
-├── src/
-│   ├── data.json          # Tất cả dữ liệu CV tách riêng khỏi components
-│   ├── App.jsx            # Root App component
-│   ├── main.jsx           # Entry point
-│   └── index.css          # Global styles
-├── index.html             # HTML template
-├── package.json           # Dependencies và scripts
-└── README.md              # File này
+src/
+├─ components/
+│  ├─ Allgeneral.jsx          # Khung CV, có nút icon mở Search Drawer
+│  ├─ Imgname.jsx             # Avatar + tên + vị trí (viền trắng)
+│  ├─ Personalinformation.jsx # Sidebar: Contact, Education, Skills, Languages
+│  ├─ Sumary.jsx              # Main: Summary, Work, Project
+│  ├─ SearchFilter.jsx        # Form Tìm kiếm & Lọc (dùng trong Drawer)
+│  └─ SimpleSearch.jsx        # Demo tìm kiếm đơn giản
+├─ data.json                  # Toàn bộ nội dung CV
+├─ App.jsx                    # Root + cấu hình theme Ant Design
+├─ main.jsx                   # Entry Vite
+└─ index.css                  # Global CSS
 ```
 
-## 🚀 Bắt đầu
+## 🚀 Chạy dự án
 
-### Yêu cầu hệ thống
-
-- Node.js (phiên bản 14 trở lên)
-- npm hoặc yarn
-
-### Cài đặt
-
-1. Clone hoặc tải dự án về
-2. Cài đặt dependencies:
-   ```bash
-   npm install
-   ```
-
-### Phát triển
-
-Khởi động development server:
-
+1) Cài đặt
+```bash
+npm install
+```
+2) Dev server
 ```bash
 npm run dev
 ```
+Mặc định: http://localhost:5173
 
-CV sẽ có sẵn tại `http://localhost:5173`
-
-### Build
-
-Build cho production:
-
+3) Build + Preview
 ```bash
 npm run build
-```
-
-### Preview
-
-Xem trước production build:
-
-```bash
 npm run preview
 ```
 
-## 🎨 Tính năng
+## ✨ Tính năng
+- Nút icon tìm kiếm góc phải mở/đóng Search Drawer
+- Tìm kiếm mượt với debounce 300ms, lọc theo loại và kỹ năng
+- Hiệu ứng UI: hover chữ/khối, “lift” card, avatar viền trắng
+- Responsive: 2 cột → 1 cột ở ≤768px
 
-- **Responsive Design**: Hoạt động trên desktop và mobile devices
-- **Semantic HTML**: Sử dụng proper HTML5 semantic elements
-- **Accessibility**: Thân thiện với screen reader với proper ARIA labels
-- **Data Separation**: Tất cả dữ liệu CV được lưu trong `src/data.json`
-- **Modern CSS**: Sử dụng Flexbox và responsive design principles
-- **Clean Code**: React components có cấu trúc tốt với props
+## 📝 Tùy chỉnh nội dung
+Chỉnh `src/data.json`:
+- `personalInfo`, `contact`, `education`, `skills`, `languages`
+- `summary`, `workExperience[]`, `projects[]`
 
-## 📝 Tùy chỉnh
+## 🔍 Ghi chú Search
+- `Allgeneral.jsx`: chứa `FloatButton` + `Drawer` để bật/tắt `SearchFilter`.
+- `SearchFilter.jsx`: xử lý filter, trả dữ liệu đã lọc qua `onFilteredData`.
 
-Để cập nhật nội dung CV, chỉnh sửa file `src/data.json`. File này chứa:
+## 🧹 Chất lượng mã
+- ESLint + Prettier + Husky. Nếu cần đẩy nhanh: `git commit --no-verify`.
+- Chú ý import đúng PascalCase theo tên file thực tế.
 
-- Thông tin cá nhân (name, position)
-- Chi tiết liên hệ
-- Thông tin học vấn
-- Kỹ năng (Backend, Frontend, Tools)
-- Ngôn ngữ
-- Tóm tắt chuyên môn
-- Kinh nghiệm làm việc
-- Dự án
-
-## 🛠️ Công nghệ sử dụng
-
-- **React 19** - UI library
-- **Vite** - Build tool và dev server
-- **Ant Design** - Icons
-- **CSS3** - Styling với Flexbox và responsive design
-- **Google Fonts** - Poppins font family
-
-## 📱 Responsive Breakpoints
-
-- Desktop: Default layout (2-column)
-- Mobile (≤768px): Single column layout với reordered content
-
-## 🎯 Best Practices được áp dụng
-
-- Semantic HTML5 elements (`<header>`, `<aside>`, `<main>`, `<article>`, `<section>`)
-- Proper heading hierarchy (h1, h2, h3)
-- Accessible images với alt text
-- External links với `target="_blank"` và `rel="noopener noreferrer"`
-- Box-sizing: border-box cho consistent sizing
-- CSS custom properties và modern layout techniques
+## 📄 License
+Sử dụng cho mục đích học tập và portfolio cá nhân.
