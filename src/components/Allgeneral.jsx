@@ -1,8 +1,10 @@
-import React from "react";
-import { Row, Col } from "antd";
-import Imgname from "./imgname";
-import Personalinformation from "./personalinformation";
-import Sumary from "./sumary";
+import React, { useState } from "react";
+import { Drawer, FloatButton } from "antd";
+import { SearchOutlined } from "@ant-design/icons";
+import Imgname from "./Imgname";
+import Personalinformation from "./Personalinformation";
+import Sumary from "./Sumary";
+import SearchFilter from "./SearchFilter";
 import data from "../data.json";
 
 /**
@@ -19,23 +21,50 @@ import data from "../data.json";
  * - Main: Tóm tắt, kinh nghiệm, dự án
  */
 export default function Allgeneral() {
+  const [filteredData, setFilteredData] = useState(data);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
   return (
-    <div className="cv-container">
+    <div className="cv-container animate-fade-in-up">
+      {/* SEARCH TOGGLER - NÚT ICON GÓC PHẢI */}
+      <FloatButton
+        icon={<SearchOutlined />}
+        tooltip={"Tìm kiếm"}
+        type="primary"
+        style={{ right: 24, top: 24 }}
+        onClick={() => setIsSearchOpen(true)}
+      />
+
+      {/* SEARCH DRAWER - FORM HIỂN THỊ KHI NHẤN ICON */}
+      <Drawer
+        title="🔍 Tìm kiếm & Lọc thông tin"
+        placement="right"
+        width={420}
+        open={isSearchOpen}
+        onClose={() => setIsSearchOpen(false)}
+        destroyOnClose
+      >
+        <SearchFilter 
+          data={data} 
+          onFilteredData={setFilteredData}
+        />
+      </Drawer>
+
       {/* HEADER SECTION - PHẦN ĐẦU CV VỚI THÔNG TIN CÁ NHÂN */}
-      <div className="cv-header">
-        <Imgname data={data} />
+      <div className="cv-header animate-slide-in-top">
+        <Imgname data={filteredData} />
       </div>
 
       {/* MAIN CONTENT - NỘI DUNG CHÍNH 2 CỘT */}
       <div className="cv-main-content">
         {/* SIDEBAR - CỘT TRÁI: THÔNG TIN BỔ TRỢ */}
-        <div className="cv-sidebar">
-          <Personalinformation data={data} />
+        <div className="cv-sidebar animate-fade-in-left animate-delay-2">
+          <Personalinformation data={filteredData} />
         </div>
 
         {/* MAIN CONTENT - CỘT PHẢI: NỘI DUNG CHÍNH */}
-        <div className="cv-main">
-          <Sumary data={data} />
+        <div className="cv-main animate-fade-in-right animate-delay-3">
+          <Sumary data={filteredData} />
         </div>
       </div>
     </div>

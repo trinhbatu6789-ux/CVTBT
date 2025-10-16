@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { Input, Select, Button, Card, Space, Typography, Tag } from "antd";
 import { SearchOutlined, FilterOutlined, ClearOutlined } from "@ant-design/icons";
 
@@ -21,8 +21,18 @@ const { Option } = Select;
  */
 export default function SearchFilter({ data, onFilteredData }) {
   const [searchTerm, setSearchTerm] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [filterType, setFilterType] = useState("all");
   const [filterSkill, setFilterSkill] = useState("all");
+
+  // Simple test to see if component renders
+  console.log("SearchFilter component is rendering");
+
+  // Debounce search term to make typing mượt hơn
+  useEffect(() => {
+    const id = setTimeout(() => setDebouncedSearch(searchTerm), 300);
+    return () => clearTimeout(id);
+  }, [searchTerm]);
 
   // Extract all skills for skill filter
   const allSkills = useMemo(() => {
@@ -46,8 +56,8 @@ export default function SearchFilter({ data, onFilteredData }) {
     let filtered = { ...data };
 
     // Text search
-    if (searchTerm) {
-      const searchLower = searchTerm.toLowerCase();
+    if (debouncedSearch) {
+      const searchLower = debouncedSearch.toLowerCase();
       
       // Filter personal info
       if (data.personalInfo) {
@@ -61,7 +71,7 @@ export default function SearchFilter({ data, onFilteredData }) {
       // Filter contact
       if (data.contact) {
         const contact = { ...data.contact };
-        if (contact.phone?.includes(searchTerm) ||
+        if (contact.phone?.includes(debouncedSearch) ||
             contact.email?.toLowerCase().includes(searchLower) ||
             contact.address?.toLowerCase().includes(searchLower)) {
           filtered.contact = contact;
@@ -189,7 +199,7 @@ export default function SearchFilter({ data, onFilteredData }) {
     setFilterSkill("all");
   };
 
-  const hasActiveFilters = searchTerm || filterType !== "all" || filterSkill !== "all";
+  const hasActiveFilters = debouncedSearch || filterType !== "all" || filterSkill !== "all";
 
   return (
     <Card 
@@ -278,9 +288,9 @@ export default function SearchFilter({ data, onFilteredData }) {
               Bộ lọc đang áp dụng:
             </Text>
             <div style={{ marginTop: "4px" }}>
-              {searchTerm && (
+              {debouncedSearch && (
                 <Tag color="blue" style={{ margin: "2px" }}>
-                  Tìm kiếm: "{searchTerm}"
+                  Tìm kiếm: "{debouncedSearch}"
                 </Tag>
               )}
               {filterType !== "all" && (
@@ -310,3 +320,5 @@ export default function SearchFilter({ data, onFilteredData }) {
     </Card>
   );
 }
+
+
